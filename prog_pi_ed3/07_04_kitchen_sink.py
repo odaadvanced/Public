@@ -17,6 +17,6 @@ Combo(app, options=["red", "green", "blue"], grid=[2,1])
 # Row 2
 ButtonGroup(app, options=["portrait", "landscape"], selected="portrait", grid=[0,2])
 Slider(app, start=0, end=10, grid=[1,2])
-Picture(app, image="prog_pi_ed3/test.png", width=100, height=100, grid=[2,2])
+Picture(app, image="test.png", width=100, height=100, grid=[2,2])
 
 app.display()
