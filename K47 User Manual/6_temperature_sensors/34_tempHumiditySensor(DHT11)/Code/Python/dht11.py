@@ -3,9 +3,9 @@ import RPi.GPIO as GPIO
 import time
 def collect():
     THdata = []
-    channel = 7
+    channel = 17
     data = []
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     time.sleep(2)
     GPIO.setup(channel, GPIO.OUT)
     GPIO.output(channel, GPIO.LOW)
@@ -19,9 +19,11 @@ def collect():
     j = 0
     while j < 40:
         k = 0
+
         while GPIO.input(channel) == GPIO.LOW:
             continue
         while GPIO.input(channel) == GPIO.HIGH:
+            time.sleep(.00001)
             k += 1
             if k > 100:
                 break
@@ -31,8 +33,8 @@ def collect():
             data.append(1)
         j += 1
 
-    # print("sensor is working.")
-    # print(data)
+    print("sensor is working.")
+    print(data)
     humidity_bit = data[0:8]
     humidity_point_bit = data[8:16]
     temperature_bit = data[16:24]
@@ -51,7 +53,7 @@ def collect():
         check += check_bit[i] * 2 ** (7 - i)
     tmp = humidity + humidity_point + temperature + temperature_point
     if check == tmp:
-        print "temperature:%d.%d" %(temperature,temperature_point),"C"," humidity :", humidity, "%"
+        print ("temperature:%d.%d" %(temperature,temperature_point),"C"," humidity :", humidity, "%")
         THdata.append(temperature)
         THdata.append(humidity)
         return THdata
