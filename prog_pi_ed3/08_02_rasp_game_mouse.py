@@ -1,4 +1,4 @@
-#08_02_rasp_game_mouse
+# 08_02_rasp_game_mouse
 
 import pygame
 from pygame.locals import *
@@ -9,9 +9,9 @@ spoon_y = 300
 pygame.init()
 
 screen = pygame.display.set_mode((600, 400))
-pygame.display.set_caption('Raspberry Catching')
+pygame.display.set_caption("Raspberry Catching")
 
-spoon = pygame.image.load('prog_pi_ed3/spoon.jpg').convert()
+spoon = pygame.image.load("prog_pi_ed3/spoon.jpg").convert()
 
 while True:
 

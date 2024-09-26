@@ -12,6 +12,7 @@ show_colon = True
 time_mode, seconds_mode, date_mode = range(3)
 disp_mode = time_mode
 
+
 def display_time():
     global show_colon
     now = datetime.now()
@@ -25,17 +26,20 @@ def display_time():
         show_colon = True
     time.sleep(0.5)
 
+
 def display_seconds():
     now = datetime.now()
     current_seconds = now.strftime("  %S")
     display.print(current_seconds)
     time.sleep(0.5)
 
+
 def display_date():
     now = datetime.now()
     current_date = now.strftime("%m%d")
     display.print(current_date)
     time.sleep(0.5)
+
 
 while True:
     if switch.is_pressed:

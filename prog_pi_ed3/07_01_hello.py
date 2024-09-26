@@ -1,4 +1,4 @@
-#07_01_hello.py
+# 07_01_hello.py
 
 from guizero import App, Text
 

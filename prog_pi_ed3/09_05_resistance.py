@@ -1,4 +1,4 @@
-#09_05_resistance.py
+# 09_05_resistance.py
 
 from PiAnalog import *
 import time

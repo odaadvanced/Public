@@ -1,4 +1,4 @@
-#09_03_pwm.py
+# 09_03_pwm.py
 
 import gpiozero
 

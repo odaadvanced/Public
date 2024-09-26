@@ -1,4 +1,4 @@
-#09_02_blink_easy.py
+# 09_02_blink_easy.py
 
 import gpiozero, time
 

@@ -1,4 +1,4 @@
-#08_06_rasp_game_final
+# 08_06_rasp_game_final
 
 import pygame
 from pygame.locals import *
@@ -11,6 +11,7 @@ screen_height = 400
 
 spoon_x = 300
 spoon_y = screen_height - 100
+
 
 class Raspberry:
     x = 0
@@ -37,16 +38,18 @@ class Raspberry:
     def is_caught(self):
         return self.y >= spoon_y and self.x >= spoon_x and self.x < spoon_x + 50
 
+
 clock = pygame.time.Clock()
 rasps = [Raspberry(), Raspberry(), Raspberry()]
 
 pygame.init()
 
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Raspberry Catching')
+pygame.display.set_caption("Raspberry Catching")
 
-spoon = pygame.image.load('prog_pi_ed3/spoon.jpg').convert()
-raspberry_image = pygame.image.load('prog_pi_ed3/raspberry.jpg').convert()
+spoon = pygame.image.load("prog_pi_ed3/spoon.jpg").convert()
+raspberry_image = pygame.image.load("prog_pi_ed3/raspberry.jpg").convert()
+
 
 def update_spoon():
     global spoon_x
@@ -54,16 +57,19 @@ def update_spoon():
     spoon_x, ignore = pygame.mouse.get_pos()
     screen.blit(spoon, (spoon_x, spoon_y))
 
+
 def check_for_catch():
     global score
     for r in rasps:
         if r.is_caught():
             score += 1
 
+
 def display(message):
     font = pygame.font.Font(None, 36)
     text = font.render(message, 1, (10, 10, 10))
     screen.blit(text, (0, 0))
+
 
 while True:
     for event in pygame.event.get():

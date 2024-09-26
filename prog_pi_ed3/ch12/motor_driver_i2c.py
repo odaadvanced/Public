@@ -6,7 +6,8 @@ import time
 pwm = PCA9685(0x40, debug=False)
 pwm.setPWMFreq(50)
 
-class MotorDriver():
+
+class MotorDriver:
     def __init__(self):
         self.PWMA = 0
         self.AIN1 = 1
@@ -57,6 +58,7 @@ class MotorDriver():
         if seconds > 0:
             time.sleep(seconds)
             self.stop()
+
 
 # m = MotorDriver()
 # m.set_motors(1, 1, 0.25, 0)

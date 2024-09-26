@@ -1,4 +1,4 @@
-#08_03_rasp_game_one
+# 08_03_rasp_game_one
 
 import pygame
 from pygame.locals import *
@@ -16,16 +16,18 @@ raspberry_y = 0
 pygame.init()
 
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Raspberry Catching')
+pygame.display.set_caption("Raspberry Catching")
 
-spoon = pygame.image.load('prog_pi_ed3/spoon.jpg').convert()
-raspberry = pygame.image.load('prog_pi_ed3/raspberry.jpg').convert()
+spoon = pygame.image.load("prog_pi_ed3/spoon.jpg").convert()
+raspberry = pygame.image.load("prog_pi_ed3/raspberry.jpg").convert()
+
 
 def update_spoon():
     global spoon_x
     global spoon_y
     spoon_x, ignore = pygame.mouse.get_pos()
     screen.blit(spoon, (spoon_x, spoon_y))
+
 
 def update_raspberry():
     global raspberry_x
@@ -40,6 +42,7 @@ def update_raspberry():
     if raspberry_x > screen_width - 20:
         raspberry_x = screen_width - 20
     screen.blit(raspberry, (raspberry_x, raspberry_y))
+
 
 while True:
     for event in pygame.event.get():

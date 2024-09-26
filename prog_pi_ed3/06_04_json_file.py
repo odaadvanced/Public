@@ -1,8 +1,8 @@
-#06_04_json_file
+# 06_04_json_file
 import json
 
-f = open('books.json')
+f = open("books.json")
 j = json.load(f)
-f.close()	
+f.close()
 
-print(j['books'][1]['title'])
+print(j["books"][1]["title"])
