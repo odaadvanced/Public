@@ -1,0 +1,6 @@
+cd
+sudo apt update
+sudo apt install python3-pip python3-pil python3-numpy git -y
+pip3 install --upgrade setuptools wheel
+pip3 install --upgrade adafruit-blinka
+pip3 install adafruit-circuitpython-ssd1306 --break-system-packages
