@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO, time
 
 ReedPin = 17
 Gpin    = 27
@@ -10,7 +10,7 @@ def setup():
 	GPIO.setup(Gpin, GPIO.OUT)     # Set Green Led Pin mode to output
 	GPIO.setup(Rpin, GPIO.OUT)     # Set Red Led Pin mode to output
 	GPIO.setup(ReedPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)    # Set ReedPin's mode is input, and pull up to high level(3.3V)
-	GPIO.add_event_detect(ReedPin, GPIO.BOTH, callback=detect, bouncetime=200)
+	#GPIO.add_event_detect(ReedPin, GPIO.BOTH, callback=detect, bouncetime=200)
 
 def Led(x):
 	if x == 0:
@@ -20,12 +20,13 @@ def Led(x):
 		GPIO.output(Rpin, 0)
 		GPIO.output(Gpin, 1)
 
-def detect(self):
+def detect():
 	Led(GPIO.input(ReedPin))
 
 def loop():
 	while True:
-		pass
+		detect()
+		time.sleep(.01)
 
 def destroy():
 	GPIO.output(Gpin, GPIO.HIGH)       # Green led on
@@ -38,4 +39,5 @@ if __name__ == '__main__':     # Program start from here
 		loop()
 	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
 		destroy()
+
 
